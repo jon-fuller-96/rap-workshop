@@ -1,0 +1,36 @@
+---
+title: "PowerPoint Created Using Markdown"
+
+output: 
+  powerpoint_presentation:
+    reference_doc: "template/template-red.pptx"
+    
+date: "2022-11-01" 
+---
+
+
+```{r include=FALSE}
+# we can run R code by using ``` {r} your_code_here ```, for info on the options check: https://rmarkdown.rstudio.com/lesson-3.html
+
+# call our files written earlier to generate data
+source("1-api-pull.R")
+source("2-data-manipulation.R")
+source("3-plot-data.R")
+```
+
+## How to use RMarkdown
+
+- We create new slides using "##" in the RMarkdown
+- We create bullet points using "-" 
+- Slide templates can easily be added to apply formatting to multiple slides
+
+## Add BAD plots
+```{r fig, fig.width=10, echo=FALSE, message=FALSE}
+library(cowplot)
+plot_grid(bad_plot, bad_plot_text)
+```
+
+## Add GOOD plot
+```{r echo=FALSE, message=FALSE}
+good_plot
+```
